@@ -24,7 +24,7 @@ Everywhere in this repo you see `<YOURADDRESS>` replace with the URL for the ins
 |---|---|
 | **1 - Getting Connected** | [Instructions](#1-Getting-Connected)  |
 | **2 - Control Loop** | [Instructions](#2-Control-Loop)  |
-| **3 - Custom Resource Definitions (CRD)** | [Instructions](#3-Custom-Resource-Definitions-(CRD))  |
+| **3 - Custom Resource Definitions (CRD)** | [Instructions](#3-Custom-Resource-Definitions)  |
 | **4 - Sidecars** | [Instructions](#4-Sidecars)  |
 | **5 - ConfigMap and Secrets** | [Instructions](#5-ConfigMap-and-Secrets)  |
 | **6 - Resources** | [Instructions](#Resources)  |
