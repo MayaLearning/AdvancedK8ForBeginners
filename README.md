@@ -1,10 +1,9 @@
-# TITLE HERE
+# Advanced Kubernetes For Beginners
 
-##  DISCRIPTION HERE
-This is a discription of the cool stuff we are going to do in the session today
+In this workshop we will explore kubernetes beyond simply spinning up a container in a pod.  
 
 Banner
-<img src="https://user-images.githubusercontent.com/blah/blahblah.png" width=“700” />
+<img src="https://user-images.githubusercontent.com/1936716/122274216-ef9f8000-cea7-11eb-8efc-82c7e58cd239.png" width=“700” />
 
 ## Before starting
 Workshop attendees will receave an email with the instance info prior to the workshop.
