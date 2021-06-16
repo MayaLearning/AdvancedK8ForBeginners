@@ -23,7 +23,7 @@ Everywhere in this repo you see `<YOURADDRESS>` replace with the URL for the ins
 | Title  | Description
 |---|---|
 | **1 - Getting Connected** | [Instructions](#1-Getting-Connected)  |
-| **2 - Control Loop** | [Instructions](#2-Control-Loop)  |
+| **2 - Control Loop and Operators** | [Instructions](#2-Control-Loop-and-Operators)  |
 | **3 - Custom Resource Definitions (CRD)** | [Instructions](#3-Custom-Resource-Definitions-crd)  |
 | **4 - Sidecars** | [Instructions](#4-Sidecars)  |
 | **5 - ConfigMap and Secrets** | [Instructions](#5-ConfigMap-and-Secrets)  |
@@ -56,39 +56,41 @@ ubuntu@learning-cluster-master:~/workshop$
 ```
 If you see the above output you are ready for the lab.
 
-## 2. Control Loop
-
-## 3. Custom Resource Definitions (CRD)
-
-## 4. Sidecars
-
-## 5. ConfigMap and Secrets
-
-## 6. Resources
-For further reading and labs go to 
-
-Description of the first section what we are going to try and do.
-
-**✅ Step 1a: The first step in the section.** 
-Instructions
-
-**✅ Step 1b: Second step in the section** 
-
+## 2. Control Loop and Operators
+  
+To understand operators a bit more we will use kubectl to apply a pre built opperator for the Cassandra database.
+  **✅ Step 1a: The first step in the section.** 
+ 
 ```bash
-Command to run
+kubectl apply -f https://raw.githubusercontent.com/datastax/cass-operator/v1.6.0/docs/user/cass-operator-manifests-v1.19.yaml
 ```
 
 *📃output*
 ```bash
 Output from the above command     
 ```
+  
 Screenshot of the above working
 <img src="https://user-images.githubusercontent.com/blah/blahblah.png" width=“700” />
+  
+  
 
-## 2. Part 2
+## 3. Custom Resource Definitions (CRD)
+  
+  Description of the first section what we are going to try and do.
 
-**✅ Step 2a: The first step in the section.**
-**✅ Step 2b: Second step in the section**
+## 4. Sidecars
+  
+  Description of the first section what we are going to try and do.
 
+## 5. ConfigMap and Secrets
+  
+  Description of the first section what we are going to try and do.
 
+## 6. Resources
+For further reading and labs go to 
+[link name](URL) 
+[link name](URL) 
+[link name](URL) 
+[link name](URL) 
 [link name](URL) 
