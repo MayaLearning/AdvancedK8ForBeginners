@@ -74,7 +74,12 @@ Screenshot of the above working
   
 
 ## 3. Custom Resource Definitions (CRD)
+  
+Custom resource definitions are ways that you can create assets the function outside of the default kubernetes resource types.  This section pulls heavily from the kubernetes custom resource definition examples in the docs.
  
+  
+Before getting started check what CRDs are already on the cluster.
+  
 ```bash
 kubectl get crd
 ```
@@ -86,26 +91,36 @@ addons.k3s.cattle.io              2021-06-17T18:59:23Z
 helmcharts.helm.cattle.io         2021-06-17T18:59:23Z
 helmchartconfigs.helm.cattle.io   2021-06-17T18:59:23Z
 ```
+
+Next apply the yaml for the new custom CRD.
   
 ```bash
 kubectl apply -f  crd.yaml
 ``` 
   
-  
+Check the list of CRDs again.  Notice the new entry for our new asset.
 ```bash
 kubectl get crd
 ``` 
   
-
+Start a pod based of the new resource type we defined. 
 ```bash
 kubectl apply -f  example-pod.yaml
 ``` 
-  
+
+Check for running resources of the type crontab.
 ```bash
-kubectl get ex
+kubectl get crontab
 ``` 
 
+If more information is required running the -o wide flag on the command will provide a full output in yaml format.
+```bash
+kubectl get ct -o yaml
+```
 
+As illistrated here a custom resource can easily be created allowing for much more expanded pod creation.
+  
+  
 ## 4. Sidecars
   
 Much of the credit for this sidecar section goes to [this great tutorial on Medium](https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d)
