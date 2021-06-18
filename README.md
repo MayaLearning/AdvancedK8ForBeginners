@@ -86,6 +86,21 @@ addons.k3s.cattle.io              2021-06-17T18:59:23Z
 helmcharts.helm.cattle.io         2021-06-17T18:59:23Z
 helmchartconfigs.helm.cattle.io   2021-06-17T18:59:23Z
 ```
+  
+```bash
+kubectl apply -f  crd.yaml
+``` 
+  
+
+```bash
+kubectl apply -f  crd.yaml
+``` 
+  
+
+```bash
+kubectl apply -f  crd.yaml
+``` 
+
 
 ## 4. Sidecars
   
