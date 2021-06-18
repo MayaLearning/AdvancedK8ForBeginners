@@ -1,8 +1,7 @@
 apiVersion: "stable.example.com/v1"
-kind: example
+kind: CronTab
 metadata:
-  name: demo-appconfig
+  name: my-new-cron-object
 spec:
-  uri: "some uri"
-  Command: "some command"
-  image: my-image
+  cronSpec: "* * * * */5"
+  image: my-awesome-cron-image
