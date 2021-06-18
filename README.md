@@ -74,12 +74,22 @@ Screenshot of the above working
   
 
 ## 3. Custom Resource Definitions (CRD)
+ 
+```bash
+kubectl get crd
+```
   
-  Description of the first section what we are going to try and do.
+*📃output*
+```bash
+NAME                              CREATED AT
+addons.k3s.cattle.io              2021-06-17T18:59:23Z
+helmcharts.helm.cattle.io         2021-06-17T18:59:23Z
+helmchartconfigs.helm.cattle.io   2021-06-17T18:59:23Z
+```
 
 ## 4. Sidecars
   
-Much of the credit for sidecars goes to [this great tutorial on Medium](https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d)
+Much of the credit for this sidecar section goes to [this great tutorial on Medium](https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d)
   
 Before we apply anything lets pull the yaml we will use. 
   ```bash
