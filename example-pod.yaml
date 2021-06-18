@@ -1,0 +1,8 @@
+apiVersion: "stable.example.com/v1"
+kind: example
+metadata:
+  name: demo-appconfig
+spec:
+  uri: "some uri"
+  Command: "some command"
+  image: my-image
