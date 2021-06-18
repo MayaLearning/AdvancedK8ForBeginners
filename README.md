@@ -91,14 +91,18 @@ helmchartconfigs.helm.cattle.io   2021-06-17T18:59:23Z
 kubectl apply -f  crd.yaml
 ``` 
   
-
+  
 ```bash
-kubectl apply -f  crd.yaml
+kubectl get crd
 ``` 
   
 
 ```bash
-kubectl apply -f  crd.yaml
+kubectl apply -f  example-pod.yaml
+``` 
+  
+```bash
+kubectl get ex
 ``` 
 
 
