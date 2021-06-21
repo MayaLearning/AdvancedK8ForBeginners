@@ -105,7 +105,7 @@ kubectl get crd
   
 Start a pod based of the new resource type we defined. 
 ```bash
-kubectl apply -f  example-pod.yaml
+kubectl apply -f example-pod.yaml
 ``` 
 
 Check for running resources of the type crontab.
