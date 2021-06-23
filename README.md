@@ -95,27 +95,76 @@ helmchartconfigs.helm.cattle.io   2021-06-17T18:59:23Z
 Next apply the yaml for the new custom CRD.
   
 ```bash
-kubectl apply -f  crd.yaml
+kubectl apply -f crd.yaml
 ``` 
+  
+*📃output*
+```bash
+customresourcedefinition.apiextensions.k8s.io/crontabs.stable.example.com created
+```
   
 Check the list of CRDs again.  Notice the new entry for our new asset.
 ```bash
 kubectl get crd
 ``` 
   
+*📃output*
+```bash
+addons.k3s.cattle.io              2021-06-21T15:43:24Z
+helmcharts.helm.cattle.io         2021-06-21T15:43:24Z
+helmchartconfigs.helm.cattle.io   2021-06-21T15:43:24Z
+crontabs.stable.example.com       2021-06-23T16:10:57Z
+```
+  
 Start a pod based of the new resource type we defined. 
 ```bash
 kubectl apply -f example-pod.yaml
 ``` 
+  
+*📃output*
+```bash
+crontab.stable.example.com/my-new-cron-object created
+```
 
 Check for running resources of the type crontab.
 ```bash
 kubectl get crontab
-``` 
+```   
+  
+*📃output*
+```bash
+NAME                 AGE
+my-new-cron-object   16s
+```
 
 If more information is required running the -o wide flag on the command will provide a full output in yaml format.
 ```bash
 kubectl get ct -o yaml
+```  
+  
+*📃output*
+```bash
+apiVersion: v1
+items:
+- apiVersion: stable.example.com/v1
+  kind: CronTab
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"stable.example.com/v1","kind":"CronTab","metadata":{"annotations":{},"name":"my-new-cron-object","namespace":"default"},"spec":{"cronSpec":"* * * * */5","image":"my-awesome-cron-image"}}
+    creationTimestamp: "2021-06-23T16:11:40Z"
+    generation: 1
+    name: my-new-cron-object
+    namespace: default
+    resourceVersion: "157929"
+    uid: 43f90a23-13fa-4f60-a673-dc9eff47dc91
+  spec:
+    cronSpec: '* * * * */5'
+    image: my-awesome-cron-image
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
 ```
 
 As illistrated here a custom resource can easily be created allowing for much more expanded pod creation.
