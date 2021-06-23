@@ -4,22 +4,21 @@ metadata:
   name: configmap-demo-pod
 spec:
   containers:
-    - name: demo
+    - name: example
       image: alpine
       command: ["sleep", "3600"]
       env:
         # Define the environment variable
-        - name: PLAYER_INITIAL_LIVES # Notice that the case is different here
-                                     # from the key name in the ConfigMap.
+        - name: FIRST_ENV 
           valueFrom:
             configMapKeyRef:
-              name: game-demo           # The ConfigMap this value comes from.
-              key: player_initial_lives # The key to fetch.
-        - name: UI_PROPERTIES_FILE_NAME
+              name: configmap-example           # The ConfigMap this value comes from.
+              key: first_value # The key to fetch.
+        - name: ASSET_PROPERTIES
           valueFrom:
             configMapKeyRef:
-              name: game-demo
-              key: ui_properties_file_name
+              name: configmap-example
+              key: app_assets_name
       volumeMounts:
       - name: config
         mountPath: "/config"
@@ -29,10 +28,10 @@ spec:
     - name: config
       configMap:
         # Provide the name of the ConfigMap you want to mount.
-        name: game-demo
+        name: configmap-example
         # An array of keys from the ConfigMap to create as files
         items:
-        - key: "game.properties"
-          path: "game.properties"
-        - key: "user-interface.properties"
-          path: "user-interface.properties"
+        - key: "error.properties"
+          path: "error.properties"
+        - key: "assets.properties"
+          path: "assets.properties"
