@@ -309,8 +309,27 @@ echo Fri Jun 18 15:31:30 UTC 2021 Hi I am from Sidecar container 2
 
 
 ## 5. ConfigMap and Secrets
+
   
-  Description of the first section what we are going to try and do.
+```bash
+kubectl get cm
+``` 
+  
+```bash
+kubectl apply -f configmap.yaml
+``` 
+  
+```bash
+kubectl get cm
+``` 
+  
+```bash
+kubectl apply -f configmap_example_pod.yaml
+``` 
+  
+```bash
+kubectl describe configmap-example -o wide
+``` 
 
 ## 6. Resources
 For further reading and labs go to 
