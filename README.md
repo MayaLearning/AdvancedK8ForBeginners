@@ -63,7 +63,19 @@ kubectl apply -f https://raw.githubusercontent.com/datastax/cass-operator/v1.6.0
 
 *📃output*
 ```bash
-Output from the above command     
+namespace/cass-operator created
+serviceaccount/cass-operator created
+secret/cass-operator-webhook-config created
+customresourcedefinition.apiextensions.k8s.io/cassandradatacenters.cassandra.datastax.com created
+clusterrole.rbac.authorization.k8s.io/cass-operator-cr created
+clusterrole.rbac.authorization.k8s.io/cass-operator-webhook created
+clusterrolebinding.rbac.authorization.k8s.io/cass-operator-crb created
+clusterrolebinding.rbac.authorization.k8s.io/cass-operator-webhook created
+role.rbac.authorization.k8s.io/cass-operator created
+rolebinding.rbac.authorization.k8s.io/cass-operator created
+service/cassandradatacenter-webhook-service created
+deployment.apps/cass-operator created
+validatingwebhookconfiguration.admissionregistration.k8s.io/cassandradatacenter-webhook-registration created   
 ```
   
 Screenshot of the above working
@@ -305,7 +317,11 @@ echo Fri Jun 18 15:31:25 UTC 2021 Hi I am from Sidecar container 2
 echo Fri Jun 18 15:31:30 UTC 2021 Hi I am from Sidecar container 1
 echo Fri Jun 18 15:31:30 UTC 2021 Hi I am from Sidecar container 2
 ```
-
+Exit the containers shell
+  
+```bash
+exit
+```
 
 ## 5. ConfigMap and Secrets
 
