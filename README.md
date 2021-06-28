@@ -14,9 +14,9 @@ Everywhere in this repo you see `<YOURADDRESS>` replace with the URL for the ins
 
 ## Table of content and resources
 
-* [Workshop On YouTube](YOUTUBE LINK HERE)
+* [Workshop On YouTube](https://youtu.be/1pkj5tkVozU)
 * [Presentation](PDF OF SLIDES HERE)
-* [Discord chat](DISCORD LINK HERE)
+* [Discord chat](https://discord.gg/TPgUrKUY5Y)
 
 | Title  | Description
 |---|---|
