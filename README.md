@@ -30,7 +30,7 @@ Everywhere in this repo you see `<YOURADDRESS>` replace with the URL for the ins
 ## 1. Getting Connected
 **✅ Step 1a: The first step in the section.**
 
-In your browser window, navigate to the url <YOURADDRESS>:3000 where your address is the one provided by Prasson.
+In your browser window, navigate to the url <YOURADDRESS>:3000 where your address is the one provided by Alex.
   
 When you arrive at the webpage you should be greeted by something similar to this.
 <img src="https://user-images.githubusercontent.com/1936716/107884421-a23fe180-6eba-11eb-96d2-4c703ccb1dcf.png" width=“700” />
@@ -46,18 +46,16 @@ kubectl get nodes
 *📃output*
 
 ```bash
-NAME                        STATUS   ROLES    AGE   VERSION
-learning-cluster-master     Ready    master   49m   v1.19.4
-learning-cluster-worker-0   Ready    <none>   49m   v1.19.4
-learning-cluster-worker-1   Ready    <none>   49m   v1.19.4
-ubuntu@learning-cluster-master:~/workshop$ 
+NAME                          STATUS   ROLES                  AGE   VERSION
+learning-cluster-0-master     Ready    control-plane,master   32m   v1.21.1+k3s1
+learning-cluster-0-worker-0   Ready    <none>                 31m   v1.21.1+k3s1
+learning-cluster-0-worker-1   Ready    <none>                 31m   v1.21.1+k3s1
 ```
 If you see the above output you are ready for the lab.
 
 ## 2. Control Loop and Operators
   
-To understand operators a bit more we will use kubectl to apply a pre built opperator for the Cassandra database.
-  **✅ Step 1a: The first step in the section.** 
+To understand operators a bit more we will use kubectl to apply a pre built operator for the Cassandra database.
  
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/datastax/cass-operator/v1.6.0/docs/user/cass-operator-manifests-v1.19.yaml
@@ -70,13 +68,12 @@ Output from the above command
   
 Screenshot of the above working
 <img src="https://user-images.githubusercontent.com/blah/blahblah.png" width=“700” />
-  
-  
 
 ## 3. Custom Resource Definitions (CRD)
   
 Custom resource definitions are ways that you can create assets the function outside of the default kubernetes resource types.  This section pulls heavily from the kubernetes custom resource definition examples in the docs.
  
+**✅ Step 3a: Setup CRD.**
   
 Before getting started check what CRDs are already on the cluster.
   
@@ -115,6 +112,8 @@ helmcharts.helm.cattle.io         2021-06-21T15:43:24Z
 helmchartconfigs.helm.cattle.io   2021-06-21T15:43:24Z
 crontabs.stable.example.com       2021-06-23T16:10:57Z
 ```
+  
+**✅ Step 3b: Setup Pod with the new CRD type.**
   
 Start a pod based of the new resource type we defined. 
 ```bash
@@ -253,7 +252,7 @@ Metrics-server is running at https://127.0.0.1:6443/api/v1/namespaces/kube-syste
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
   
-Since everything is running on localhost we can simply go into the container and hit the web server. Replace YOURCONTAINERID with the container ID of your instance. 
+Since everything is running on localhost we can simply go into the container and hit the web server. Replace YOURCONTAINERID with the container ID of the running webapp. 
   
 ```bash 
 kubectl exec -it YOURCONTAINERID -c main-container -- /bin/sh
@@ -315,26 +314,45 @@ echo Fri Jun 18 15:31:30 UTC 2021 Hi I am from Sidecar container 2
 kubectl get cm
 ``` 
   
+   
+*📃output*
+```bash
+```
+  
 ```bash
 kubectl apply -f configmap.yaml
 ``` 
+
+   
+*📃output*
+```bash
+```
   
 ```bash
 kubectl get cm
 ``` 
+   
+*📃output*
+```bash
+```
   
 ```bash
 kubectl apply -f configmap_example_pod.yaml
-``` 
+```  
+   
+*📃output*
+```bash
+```
   
 ```bash
 kubectl describe configmap-example -o wide
 ``` 
+   
+*📃output*
+```bash
+```
 
 ## 6. Resources
 For further reading and labs go to 
-[link name](URL) 
-[link name](URL) 
-[link name](URL) 
-[link name](URL) 
-[link name](URL) 
+[More workshops](https://github.com/MayaLearning) 
+[Data On Kubernetes Community and Meetups](dok.community) 
