@@ -333,15 +333,17 @@ kubectl get cm
    
 *📃output*
 ```bash
+NAME               DATA   AGE
+kube-root-ca.crt   1      25h
 ```
   
 ```bash
 kubectl apply -f configmap.yaml
 ``` 
-
    
 *📃output*
 ```bash
+configmap/configmap-example created
 ```
   
 ```bash
@@ -350,6 +352,9 @@ kubectl get cm
    
 *📃output*
 ```bash
+NAME                DATA   AGE
+kube-root-ca.crt    1      25h
+configmap-example   4      20s
 ```
   
 ```bash
@@ -358,14 +363,34 @@ kubectl apply -f configmap_example_pod.yaml
    
 *📃output*
 ```bash
+pod/configmap-demo-pod created
 ```
   
 ```bash
-kubectl describe configmap-example -o wide
+kubectl describe pods configmap-demo-pod
 ``` 
    
 *📃output*
 ```bash
+  Name:         configmap-demo-pod
+Namespace:    default
+...      docker.io/library/alpine@sha256:234cb88d3020898631af0ccbbcca9a66ae7306ecd30c9720690858c1b007d2a0
+  ...
+    Environment:
+      FIRST_ENV:         <set to the key 'first_value' of config map 'configmap-example'>      Optional: false
+      ASSET_PROPERTIES:  <set to the key 'app_assets_name' of config map 'configmap-example'>  Optional: false
+    Mounts:
+      /config from config (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-cmqfv (ro)
+...
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  6s    default-scheduler  Successfully assigned default/configmap-demo-pod to learning-cluster-0-worker-0
+  Normal  Pulling    5s    kubelet            Pulling image "alpine"
+  Normal  Pulled     4s    kubelet            Successfully pulled image "alpine" in 843.915004ms
+  Normal  Created    4s    kubelet            Created container example
+  Normal  Started    4s    kubelet            Started container example
 ```
 
 ## 6. Resources
