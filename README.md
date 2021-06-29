@@ -5,17 +5,16 @@
 In this workshop we will explore kubernetes beyond simply spinning up a container in a pod.  
 
 ## Before starting
-Workshop attendees will receave an email with the instance info prior to the workshop.
+Workshop attendees will receave an email with the link to the livestream prior to the workshop.
 
-Notice that training cloud instances will be available only during the workshop and will be terminated **24 hours later**. If you are in our workshop we recommend using the provided cloud instance, you can relax as we have you covered: prerequisites are installed already.
+If you are in our workshop we recommend using the provided cloud instance, you can relax as we have you covered: prerequisites are installed already. Notice that training cloud instances provided during the live lab will be available only during the workshop and will be terminated **24 hours later**.
 
 **⚡ IMPORTANT NOTE:**
 Everywhere in this repo you see `<YOURADDRESS>` replace with the URL for the instance you were given.  
 
-## Table of content and resources
+## Table of contents and additional resources
 
 * [Workshop On YouTube](https://youtu.be/1pkj5tkVozU)
-* [Presentation](PDF OF SLIDES HERE)
 * [Discord chat](https://discord.gg/TPgUrKUY5Y)
 
 | Title  | Description
@@ -55,7 +54,7 @@ If you see the above output you are ready for the lab.
 
 ## 2. Control Loop and Operators
   
-To understand operators a bit more we will use kubectl to apply a pre built operator for the Cassandra database.
+To understand operators a bit more we will use kubectl to apply a pre-built operator for the Cassandra database.
  
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/datastax/cass-operator/v1.6.0/docs/user/cass-operator-manifests-v1.19.yaml
@@ -77,9 +76,6 @@ service/cassandradatacenter-webhook-service created
 deployment.apps/cass-operator created
 validatingwebhookconfiguration.admissionregistration.k8s.io/cassandradatacenter-webhook-registration created   
 ```
-  
-Screenshot of the above working
-<img src="https://user-images.githubusercontent.com/blah/blahblah.png" width=“700” />
 
 ## 3. Custom Resource Definitions (CRD)
   
@@ -178,14 +174,14 @@ metadata:
   selfLink: ""
 ```
 
-As illistrated here a custom resource can easily be created allowing for much more expanded pod creation.
+As illustrated here a custom resource can easily be created allowing for much more expanded pod creation.
   
   
 ## 4. Sidecars
   
 Much of the credit for this sidecar section goes to [this great tutorial on Medium](https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d)
   
-Before we apply anything lets pull the yaml we will use. 
+Before we apply anything let's pull the yaml we will use. 
   ```bash
   curl -0 https://gist.githubusercontent.com/bbachi/7d6c40fc8f660eed243f7e9cd31d99c8/raw/03801fa846760d7833ad10f0be69552eede7d828/manifest.yml > sidecars.yaml
 ```
@@ -197,7 +193,7 @@ Before we apply anything lets pull the yaml we will use.
 100  1478  100  1478    0     0  14211      0 --:--:-- --:--:-- --:--:-- 14211    
 ```
  
-If we open up the yaml file in the file explorer we can see that we are setting up three containers.  One is a simple Nginx server and two are seperate sidecars.  Go ahead and apply the yaml.
+If we open up the yaml file in the File Explorer we can see that we are setting up three containers.  One is a simple Nginx server and two are seperate sidecars.  Go ahead and apply the yaml.
  
 Note we are creating a deployment instead of a single pod.
   ```bash
@@ -222,7 +218,7 @@ NAME           READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS                
 nginx-webapp   5/5     5            5           36s   sidecar-container1,sidecar-container2,main-container   busybox,busybox,nginx   app=nginx-webapp
 ```
   
-To see the indavidual pods and ports that are now being used run the following.
+To see the individual pods and ports that are now being used run the following.
   
 ```bash
 kubectl get pods -o wide
@@ -351,7 +347,7 @@ kubectl apply -f configmap.yaml
 configmap/configmap-example created
 ```
   
-Check to make sure the ConfigMap was created
+Check to make sure the ConfigMap was created.
   
 ```bash
 kubectl get cm
@@ -406,6 +402,6 @@ Events:
 
   
 ## 6. Resources
-For further reading and labs go to 
-[More workshops](https://github.com/MayaLearning) 
+For further reading and labs check out 
+[more workshops and Labs from MayaLearning](https://github.com/MayaLearning) and upcoming
 [Data On Kubernetes Community and Meetups](dok.community) 
