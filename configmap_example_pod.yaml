@@ -33,5 +33,5 @@ spec:
         items:
         - key: "error.properties"
           path: "error.properties"
-        - key: "assets.properties"
-          path: "assets.properties"
+        - key: "error_text.properties"
+          path: "error_text.properties"
