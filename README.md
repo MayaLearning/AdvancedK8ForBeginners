@@ -325,6 +325,9 @@ exit
 
 ## 5. ConfigMap and Secrets
 
+**✅ Step 5a: ConfigMaps.**
+  
+Take a look at what config maps exist on the cluster.
   
 ```bash
 kubectl get cm
@@ -337,6 +340,8 @@ NAME               DATA   AGE
 kube-root-ca.crt   1      25h
 ```
   
+Use the provided yaml to create a ConfigMap.
+  
 ```bash
 kubectl apply -f configmap.yaml
 ``` 
@@ -345,6 +350,8 @@ kubectl apply -f configmap.yaml
 ```bash
 configmap/configmap-example created
 ```
+  
+Check to make sure the ConfigMap was created
   
 ```bash
 kubectl get cm
@@ -357,6 +364,8 @@ kube-root-ca.crt    1      25h
 configmap-example   4      20s
 ```
   
+Next create a pod that consumes the new ConfigMap.
+  
 ```bash
 kubectl apply -f configmap_example_pod.yaml
 ```  
@@ -365,6 +374,8 @@ kubectl apply -f configmap_example_pod.yaml
 ```bash
 pod/configmap-demo-pod created
 ```
+  
+Run describe on the pod and look at the references to the configmap.
   
 ```bash
 kubectl describe pods configmap-demo-pod
@@ -393,6 +404,50 @@ Events:
   Normal  Started    4s    kubelet            Started container example
 ```
 
+**✅ Step 5b: Secrets.TODO**
+  
+While there are many kinds of secrets the below example uses a [SSH authentication secret](https://kubernetes.io/docs/concepts/configuration/secret/#ssh-authentication-secrets).
+  
+Before we make the secret we need an ssh key to store.  To get one we will use ssh-keygen name the key test-pod and accept the rest of the defaults by pressing enter until the prompts finish.
+
+  
+```bash
+ssh-keygen
+```
+  
+*📃output*
+```bash
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ubuntu/.ssh/id_rsa): test-pod
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in test-pod
+Your public key has been saved in test-pod.pub
+The key fingerprint is:
+...
+```
+
+ Next modify the provided secret.yaml by replacing YOURPRIVATEKEYHERE with the contents of test-pod file in the file browser.  This is the new private key that you generated.
+  
+```bash
+kubectl apply -f secret.yaml
+```
+
+*📃output*
+```bash
+```
+  
+```bash
+kubectl get secrets 
+```
+   
+```bash
+kubectl get secret TODO -o yaml
+```
+
+
+
+  
 ## 6. Resources
 For further reading and labs go to 
 [More workshops](https://github.com/MayaLearning) 
